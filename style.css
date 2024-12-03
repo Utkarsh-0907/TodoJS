@@ -1,65 +1,176 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #2ecc71;
+  font-family: 'Arial', sans-serif;
+  background-color: #d5d5d5; 
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
+  overflow: scroll;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.head h1 {
+  font-size: xx-large;
+  color: #3e3e3e;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.head {
+  display: flex;          
+  justify-content: center;
+  align-items: center;    
+  width: 100%;            
+  height: 100px;        
+  background-color: #d5d5d5; 
 }
 
 .board {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   padding: 20px;
   overflow-x: auto;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 90vh;
+  max-width: 1200px;
 }
 
 .list {
   background-color: #ecf0f1;
-  border-radius: 5px;
-  width: 200px;
-  padding: 10px;
+  border-radius: 8px;
+  width: 250px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .list h3 {
-  margin: 0 0 10px;
-  font-size: 1.2rem;
+  margin: 0 0 15px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2c3e50;
 }
 
-.card, input {
+.card,
+input {
   background-color: #fff;
   border: 1px solid #bdc3c7;
-  border-radius: 3px;
-  padding: 10px;
+  border-radius: 5px;
+  padding: 12px;
   margin-bottom: 10px;
-  font-size: 0.9rem;
-  flex-basis: calc(100% / 5 - 10px); 
-  box-sizing: border-box; 
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
-.add-card, .add-list {
+.card {
+  cursor: pointer;
+  font-size: 1rem;
+  color: #34495e;
+}
+
+.card input {
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.add-card,
+.add-list {
   background-color: #3498db;
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  text-align: center;
   margin-top: 10px;
 }
 
-.add-list {
-  padding: 10px;
-}
-
-.add-card:hover, .add-list:hover {
+.add-card:hover,
+.add-list:hover {
   background-color: #2980b9;
 }
 
+.add-card {
+  margin-top: 15px;
+}
+
+.add-list {
+  padding: 15px;
+}
+
+button:focus {
+  outline: none;
+}
+
+input[type="text"] {
+  font-size: 1rem;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+input[type="text"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.add-card,
+.add-list {
+  margin-top: 20px;
+}
+
+
+.card-wrapper {
+  margin-bottom: 10px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-card, .delete-list {
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  color: red;
+}
+
+.delete-card:hover, .delete-list:hover {
+  color: darkred;
+}
+
+.list-title-input {
+  font-size: 1rem;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.list-title-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
 
 

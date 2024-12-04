@@ -77,6 +77,20 @@ function setupDragAndDrop() {
                 ? dropTargetList.nextSibling
                 : dropTargetList
             );
+
+            const boardDataEntries = Object.entries(boardData);
+            const [removedEntry] = boardDataEntries.splice(currentIndex, 1);
+            boardDataEntries.splice(targetIndex, 0, removedEntry);
+
+            const newBoardData = {};
+            boardDataEntries.forEach(([listName, cards]) => {
+              newBoardData[listName] = cards;
+            });
+
+            Object.keys(boardData).forEach((key) => delete boardData[key]);
+            Object.assign(boardData, newBoardData);
+
+            render();
           }
         }
       }
@@ -204,7 +218,6 @@ function render() {
 
   board.appendChild(addListButton);
 }
-
 function addList() {
   const board = document.getElementById("board");
 
@@ -231,7 +244,6 @@ function addList() {
   board.insertBefore(list, board.lastElementChild);
   listNameInput.focus();
 }
-
 function editElement(element, listName = null, cardIndex = null) {
   const originalText = element.textContent;
   const input = document.createElement("input");
@@ -278,31 +290,7 @@ function editElement(element, listName = null, cardIndex = null) {
     }
   });
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   render();
   setupDragAndDrop();
 });
-
-const style = document.createElement("style");
-style.textContent = `
-  .card {
-    cursor: move;
-    user-select: none;
-  }
-  .card.dragging {
-    opacity: 0.5;
-  }
-  .list {
-    cursor: move;
-    border: 2px dashed transparent;
-    transition: border-color 0.3s;
-  }
-  .list.dragging {
-    opacity: 0.5;
-  }
-  .list:hover {
-    border-color: #ccc;
-  }
-`;
-document.head.appendChild(style);
